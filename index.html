@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Form</title>
+    <style>
+      .container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-bottom: 20px;
+        border: 1px solid black;
+          
+      }
+      h1{
+        margin-left: 100px;
+      }
+
+      .container label{
+        margin-left: 100px;
+        margin-right: 20px;
+      }
+      .container input,
+      .container select {
+        display: inline;
+        margin-bottom: 10px;
+      }
+
+      .container input[type="submit"] {
+        padding: 10px 20px;
+        margin-left: 150px;
+        background-color: yellowgreen;
+        
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        width: 100px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1>User Data Form</h1>
+      <form id="userDataForm">
+        <div class="name">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="age">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" placeholder="Enter your age" required>
+        </div>
+
+        <div class="email">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="gender">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div class="container">
+      <h1>User Data Table</h1>
+      <table id="userDataTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <audio src="audio.mp3" controls>your browser is not compatible</audio><br>
+    <video src="Uhr9.mp4" controls width="500px">your browser is not compatible</video>
+    <img src="forest-1400475.jpg" alt="photo" width="200px">
+    <iframe src="https://www.safari.com" frameborder="0"></iframe>
+
+    <script>
+      const form = document.getElementById('userDataForm');
+      const tableBody = document.querySelector('#userDataTable tbody');
+  
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+  
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const email = document.getElementById('email').value;
+        const gender = document.getElementById('gender').value;
+  
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${name}</td>
+          <td>${age}</td>
+          <td>${email}</td>
+          <td>${gender}</td>
+        `;
+  
+        tableBody.appendChild(newRow);
+  
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
